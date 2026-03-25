@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register | EduTrack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#4f46e5,#90a0ba);
+}
+
+.auth-container{
+display:flex;
+width:900px;
+background:#fff;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 30px 60px rgba(0,0,0,0.25);
+}
+
+.auth-left{
+flex:1;
+background:linear-gradient(135deg,#6366f1,#4338ca);
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:40px;
+text-align:center;
+}
+
+.auth-left h1{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.auth-left p{
+opacity:0.9;
+font-size:15px;
+}
+
+.auth-card{
+flex:1;
+padding:40px;
+}
+
+.auth-card h2{
+text-align:center;
+margin-bottom:30px;
+color:#1f2937;
+}
+
+.input-group{
+position:relative;
+margin-bottom:20px;
+}
+
+.input-group i{
+position:absolute;
+top:50%;
+left:12px;
+transform:translateY(-50%);
+color:#9ca3af;
+font-size:18px;
+}
+
+.input-group input{
+width:100%;
+padding:12px 12px 12px 40px;
+border-radius:8px;
+border:1px solid #d1d5db;
+outline:none;
+font-size:14px;
+transition:0.2s;
+}
+
+.input-group input:focus{
+border-color:#4f46e5;
+box-shadow:0 0 0 2px rgba(79,70,229,0.1);
+}
+
+button{
+width:100%;
+padding:12px;
+background:#4f46e5;
+border:none;
+border-radius:8px;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#3730a3;
+transform:translateY(-1px);
+}
+
+.switch{
+margin-top:18px;
+text-align:center;
+font-size:14px;
+}
+
+.switch a{
+color:#4f46e5;
+text-decoration:none;
+font-weight:600;
+}
+
+.switch a:hover{
+text-decoration:underline;
+}
+</style>
+</head>
+<body>
+
+<div class="auth-container">
+
+<div class="auth-left">
+<h1>EduTrack</h1>
+<p>Your personal learning management system.</p>
+</div>
+
+<div class="auth-card">
+
+<h2>Create Account</h2>
+
+<form id="registerForm">
+
+<div class="input-group">
+<i class="ri-user-line"></i>
+<input type="text" id="name" placeholder="Full Name" required>
+</div>
+
+<div class="input-group">
+<i class="ri-mail-line"></i>
+<input type="email" id="email" placeholder="Email" required>
+</div>
+
+<div class="input-group">
+<i class="ri-lock-line"></i>
+<input type="password" id="password" placeholder="Password" required>
+</div>
+
+<button type="submit">Register</button>
+
+</form>
+
+<div class="switch">
+Already have an account? <a href="login.html">Login</a>
+</div>
+
+</div>
+
+</div>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const nameInput = document.getElementById("name").value;
+  const emailInput = document.getElementById("email").value;
+  const passwordInput = document.getElementById("password").value;
+
+  const res = await fetch("http://localhost:5000/api/auth/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name: nameInput,
+      email: emailInput,
+      password: passwordInput
+    })
+  });
+
+  const result = await res.json();
+
+  if (res.ok) {
+    alert("Registration successful. Please login.");
+    window.location.href = "login.html";
+  } else {
+    alert(result.message);
+  }
+});
+</script>
+
+</body>
+</html>

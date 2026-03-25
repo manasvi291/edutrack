@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>EduTrack-Learning Dashboard</title>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="topbar">
+            <div class="logo">
+                <i class="ri-graduation-cap-line"></i>
+                <span>EduTrack</span>
+            </div>
+            <div class="search">
+                <i class="ri-search-line"></i>
+                <input type="text" placeholder="search...."/>
+            </div>
+            <div class="user-menu">
+                <div class="user-info" onclick="toggleUserMenu()">
+                  <img src="assets/user.png" class="avatar">
+                  <span id="username">User</span>
+                  <i class="ri-arrow-down-s-line"></i>
+                </div>
+                <div class="dropdown" id="userDropdown">
+                  <a href="#" data-section="profile-section"><i class="ri-user-line"></i> Profile</a>
+                  <a href="#" data-section="settings-section"><i class="ri-settings-3-line"></i> Settings</a>
+                  <a href="#" data-section="help-section"><i class="ri-question-line"></i> Help</a>
+                  <a href="#" onclick="logout()"><i class="ri-logout-box-line"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-top">
+                <a href="#" class="active" data-section="dashboard-section">
+                  <i class="ri-dashboard-line"></i>Dashboard</a>
+                <a href="#" data-section="course-section">
+                  <i class="ri-book-open-line"></i>My Course</a>
+                <a href="#" data-section="content-section">
+                  <i class="ri-play-circle-line"></i>Learning Content</a>
+                <a href="#" data-section="certificate-section">
+                  <i class="ri-award-line"></i>Certificates</a>
+                <a href="#" data-section="progress-section">
+                  <i class="ri-bar-chart-line"></i>Progress</a>
+            </div>
+            <div class="sidebar-bottom">
+                <a href="#" data-section="help-section">
+                <i class="ri-question-line"></i>Help</a>
+                <a href="#" data-section="settings-section">
+                <i class="ri-settings-line"></i>Settings</a>
+            </div>
+        </div>
+     <div class="main-content">
+        <!-- DASHBOARD SECTION -->
+        <section id="dashboard-section" class="page-section active">
+
+            <div class="cards">
+                <div class="card">
+                    <i class="ri-book-3-line"></i>
+                    <h3>Courses Enrolled</h3>
+                    <p>6</p>
+                </div>
+                <div class="card">
+                    <i class="ri-checkbox-circle-line"></i>
+                    <h3>Courses Completed</h3>
+                    <p>3</p>
+                </div>
+                <div class="card">
+                    <i class="ri-time-line"></i>
+                    <h3>In Progress</h3>
+                    <p>2</p>
+                </div>
+                <div class="card">
+                    <i class="ri-award-line"></i>
+                    <h3>Certificates Earned</h3>
+                    <p>1</p>
+                </div>
+            </div>
+
+          <div class="dashboard-grid">
+            <div class="learning-progress">
+                <h2>Learning Progress</h2>
+                <div class="progress-box">
+                    <span>HTML & CSS</span>
+                    <div class="progress">
+                        <div class="progress-bar" id="htmlBar"></div>
+                    </div>
+                </div>
+
+                <div class="progress-box">
+                    <span>JavaScript Basics</span>
+                    <div class="progress">
+                        <div class="progress-bar" id="jsBar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-box">
+                <h2>Skill Distribution</h2>
+                <div class="bar html">HTML</div>
+                <div class="bar css">CSS</div>
+                <div class="bar js">JavaScript</div>
+            </div>
+          </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Category</th>
+                            <th>Progress</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HTML & CSS Fundamentals</td>
+                            <td>Web Development</td>
+                            <td>80%</td>
+                            <td><span class="status ongoing">Ongoing</span></td>
+                            <td><i class="ri-eye-line"></i></td>
+                        </tr>
+
+                        <tr>
+                            <td>JavaScript Basics</td>
+                            <td>Programming</td>
+                            <td>45%</td>
+                            <td><span class="status ongoing">Ongoing</span></td>
+                            <td><i class="ri-eye-line"></i></td>
+                        </tr>
+
+                        <tr>
+                            <td>UI/UX Design Principles</td>
+                            <td>Design</td>
+                            <td>100%</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td><i class="ri-award-line"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="activity-feed">
+                <h2>Recent Activities</h2>
+                <div class="activity-items">
+                    <div class="activity-item">
+                        <i class="ri-book-line"></i>
+                        <div class="activity-details">
+                            <h4>Lesson Completed</h4>
+                            <p>Completed Flexbox module in HTML & CSS</p>
+                            <span class="activity-time">2 hours</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <i class="ri-play-circle-line"></i>
+                        <div class="activity-details">
+                            <h4>New Course Enrolled</h4>
+                            <p>Enrolled in JavaScript Basics</p>
+                            <span class="activity-time">5 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <i class="ri-award-line"></i>
+                        <div class="activity-details">
+                            <h4>Certificate Earned</h4>
+                            <p>Completed UI/UX Design Principles</p>
+                            <span class="activity-time">1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- course-section -->
+        <section id="course-section" class="page-section">
+         <div class="courses-header">
+           <h1>My Courses</h1>
+           <p>Continue learning and track your progress</p>
+         </div>
+        
+        <div id="coursesContainer" class="courses-grid"></div>
+      </section>
+
+        <section id="content-section" class="page-section">
+          <h2>Learning Content</h2>
+        </section>
+
+        <section id="certificate-section" class="page-section">
+          <h2>Certificates</h2>
+        </section>
+
+        <section id="progress-section" class="page-section">
+          <h2>Progress</h2>
+        </section>
+
+        <section id="profile-section" class="page-section">
+           <div class="profile-header">
+            <h1>My Profile</h1>
+            <p>Manage your personal information</p>
+           </div>
+           <div class="profile-container">
+            <div class="profile-card">
+                <div class="profile-avatar-large">
+                    <img src="assets/user.png">
+                </div>
+                    <h2 id="profileName"></h2>
+                    <p id="profileEmail"></p>
+                </div>
+                <div class="profile-details">
+                    <h3>Account Details</h3>
+                    <div class="detail-row">
+                        <span>Name</span>
+                        <span id="profileName2"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Email</span>
+                        <span id="profileEmail2"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Role</span>
+                        <span>Student</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Status</span>
+                        <span>Active</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="help-section" class="page-section">
+          <!-- <h2>Help</h2> -->
+          <h1>Help & Support</h1>
+          <div class="help-grid">
+            <div class="help-box">
+                <i class="ri-book-line"></i>
+                <h3>Learning Support</h3>
+                <p>Guidance on courses, progress tracking and certificates.</p>
+            </div>
+            <div class="help-box">
+                <i class="ri-customer-service-2-line"></i>
+                <h3>Contact Support</h3>
+                <p>Email: support@edutrack.com</p>
+                <p>Response within 24 hours</p>
+            </div>
+            <div class="help-box">
+                <i class="ri-question-answer-line"></i>
+                <h3>FAQ</h3>
+                <p>Find answers to common questions about your learning dashboard.</p>
+            </div>
+          </div>
+          <div class="help-form">
+            <h2>Send a Message</h2>
+            <input type="text" placeholder="Subject">
+            <textarea placeholder="Describe your issue"></textarea>
+            <button class="save-btn">Submit Request</button>
+        </div>
+
+        </section>
+
+        <section id="settings-section" class="page-section">
+          <!-- <h2>Settings</h2> -->
+          <h1>Account Settings</h1>
+          <div class="settings-grid">
+            <div class="settings-card">
+                <h3>Profile Settings</h3>
+                <input type="text" placeholder="Update Name">
+                <input type="email" placeholder="Update Email">
+                <button class="save-btn">Save Changes</button>
+            </div>
+            <div class="settings-card">
+                <h3>Password</h3>
+                <input type="password" placeholder="Current Password">
+                <input type="password" placeholder="New Password">
+                <button class="save-btn">Change Password</button>
+            </div>
+            <div class="settings-card">
+                <h3>Preferences</h3>
+                <label><input type="checkbox"> Email Notifications</label>
+                <label><input type="checkbox"> Dark Mode</label>
+            </div>
+        </div>
+    </section>
+    
+     </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
