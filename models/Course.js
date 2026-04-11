@@ -22,6 +22,18 @@ const courseSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
+  modules: [{
+    id: String,
+    title: String,
+    description: String,
+    searchKeywords: String,
+    duration: String,
+    lessons: Number,
+    completed: {
+      type: Boolean,
+      default: false
+    }
+  }],
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

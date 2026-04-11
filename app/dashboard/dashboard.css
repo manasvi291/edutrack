@@ -1321,3 +1321,445 @@ body {
   background: #E2E8F0;
   transform: translateY(-2px);
 }
+
+/* ---------------- COURSE TRACKER MODAL ---------------- */
+.tracking-modal-panel {
+  max-width: 600px;
+  width: 100%;
+}
+
+.tracking-progress-bar-container {
+  height: 8px;
+  background: var(--bg-main);
+  border-radius: 99px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+.tracking-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 99px;
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.module-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.module-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.module-check-item:hover {
+  background: #fff;
+  border-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.module-check-item.completed {
+  background: var(--secondary-light);
+  border-color: var(--secondary);
+  opacity: 0.8;
+}
+
+.module-check-item.completed:hover {
+  opacity: 1;
+}
+
+.checkbox-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.tracking-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.custom-checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: #fff;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.module-check-item:hover .custom-checkbox {
+  border-color: var(--primary);
+}
+
+.tracking-checkbox:checked ~ .custom-checkbox {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  transform: scale(1.1);
+}
+
+.custom-checkbox i {
+  color: white;
+  font-size: 14px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.2s;
+}
+
+.tracking-checkbox:checked ~ .custom-checkbox i {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.module-check-details {
+  flex: 1;
+}
+
+.module-check-details h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  line-height: 1.3;
+  transition: color 0.2s;
+}
+
+.module-check-item.completed .module-check-details h4 {
+  color: var(--secondary);
+  text-decoration: line-through;
+}
+
+.module-check-details p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ---------------- COURSE ACTIONS MENU ---------------- */
+.course-actions-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.course-actions-menu:hover {
+  background: var(--bg-main);
+  color: var(--primary);
+  border-color: var(--primary-light);
+}
+
+.course-dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 180px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border: 1px solid var(--border);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+}
+
+.course-dropdown-menu button {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  padding: 10px 12px;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.course-dropdown-menu button:hover {
+  background: var(--bg-main);
+  color: var(--primary);
+}
+
+.course-dropdown-menu button.delete-action:hover {
+  background: #FEE2E2;
+  color: #EF4444;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+/* ---------------- CERTIFICATES UI ---------------- */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.certificate-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-light);
+}
+
+.cert-verified-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--secondary);
+  font-size: 1.8rem;
+  z-index: 10;
+}
+
+.cert-card-content {
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.cert-icon-container {
+  width: 48px;
+  height: 48px;
+  background: var(--secondary-light);
+  color: var(--secondary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.cert-course-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.cert-course-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.btn-cert-download {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--text-dark);
+  color: white;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cert-download:hover:not(:disabled) {
+  background: #1e293b;
+}
+
+.btn-cert-download:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---------------- ACTIVE LAUNCHPAD ---------------- */
+.shadow-premium {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: var(--primary-light) !important;
+}
+
+.highlight-next {
+  background: var(--primary-light);
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--primary) !important;
+  display: inline-flex;
+  margin-top: 4px;
+}
+
+.highlight-next i {
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.active-launchpad {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.module-resource-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.module-resource-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.module-resource-card.completed {
+  background: var(--bg-main);
+  opacity: 0.8;
+}
+
+.module-card-main {
+  display: flex;
+  gap: 20px;
+}
+
+.module-check-wrapper {
+  cursor: pointer;
+  padding-top: 4px;
+}
+
+.module-content {
+  flex: 1;
+}
+
+.module-flex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.module-flex-header h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.module-duration-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--bg-main);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.module-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.module-actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-launch-resource {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FF0000; /* YouTube Red */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-launch-resource:hover {
+  background: #CC0000;
+  transform: scale(1.05);
+}
+
+.lesson-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.module-resource-card.completed .module-flex-header h4 {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.module-resource-card.completed .btn-launch-resource {
+  background: var(--border);
+  color: var(--text-muted);
+}

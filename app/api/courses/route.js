@@ -48,9 +48,11 @@ export async function POST(request) {
       progress: data.progress || 0,
       status: data.status || 'ongoing',
       url: data.url || '',
+      modules: data.modules || [],
       deadline: data.deadline ? new Date(data.deadline) : null,
       user: auth.user.userId
     });
+
     
     await newCourse.save();
 
