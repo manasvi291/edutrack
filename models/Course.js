@@ -32,6 +32,22 @@ const courseSchema = new mongoose.Schema({
     completed: {
       type: Boolean,
       default: false
+    },
+    subModules: [{
+      title: String,
+      completed: {
+        type: Boolean,
+        default: false
+      }
+    }]
+  }],
+  assessments: [{
+    moduleId: String,
+    score: Number,
+    total: Number,
+    date: {
+      type: Date,
+      default: Date.now
     }
   }],
   user: {

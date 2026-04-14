@@ -2,11 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+:root {
+  --primary: #6366f1;
+  --secondary: #8b5cf6;
+  --accent: #f59e0b;
+  --bg-main: #0f172a;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --border: rgba(255, 255, 255, 0.08);
+  --font-main: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /* Auth pages styles */

@@ -46,7 +46,7 @@ export default function LoginPage() {
     <div className="auth-wrapper">
       <div className="auth-container">
         <div className="auth-left">
-          <h1>EduTrack</h1>
+          <h1>SkillTrack</h1>
           <p>Track your courses, progress and achievements.</p>
         </div>
 

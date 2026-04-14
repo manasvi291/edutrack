@@ -25,14 +25,18 @@ Return the response ONLY as a valid JSON object with the following structure, wi
       "description": "A 1-2 sentence compelling hook describing what the learner will build or achieve.",
       "searchKeywords": "Highly specific youtube search string to find a tutorial about this module (e.g. 'React hooks tutorial for beginners')",
       "duration": "Estimated duration (e.g., '2 hours')",
-      "lessons": Number of lessons (integer)
+      "lessons": 5,
+      "subModules": [
+        { "title": "Sub-module 1 title" },
+        { "title": "Sub-module 2 title" }
+      ]
     }
   ],
   "totalDuration": "Total estimated duration (e.g., '27 hours')"
 }
-Make sure it has at least 3-5 modules.`;
+Make sure it has at least 3-5 modules, and each module has 2-4 sub-modules representing specific lessons.`;
 
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
