@@ -1,6 +1,6 @@
-# EduTrack - Next.js Full-Stack Application
+# Skilltrack - Next.js Full-Stack Application
 
-Welcome to **EduTrack**, a modern learning management system built with Next.js! This project has been converted from a traditional HTML/CSS/JavaScript + Express.js backend to a full-stack Next.js application.
+Welcome to **Skilltrack**, a modern learning management system built with Next.js! This project has been converted from a traditional HTML/CSS/JavaScript + Express.js backend to a full-stack Next.js application.
 
 ## 🚀 Features
 

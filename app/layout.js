@@ -1,7 +1,7 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'EduTrack - Learning Dashboard',
+  title: 'SkillTrack - Learning Dashboard',
   description: 'Track your courses, progress and achievements',
 }
 

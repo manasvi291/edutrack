@@ -313,7 +313,7 @@ export default function DashboardPage() {
       {/* Educational Sidebar */}
       <aside className="edu-sidebar">
         <div className="sidebar-brand">
-          <i className="ri-graduation-cap-fill"></i> EduTrack
+          <i className="ri-graduation-cap-fill"></i> SkillTrack
         </div>
 
         <div className="nav-group">

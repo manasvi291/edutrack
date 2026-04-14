@@ -45,7 +45,7 @@ export default function RegisterPage() {
     <div className="auth-wrapper">
       <div className="auth-container">
         <div className="auth-left">
-          <h1>EduTrack</h1>
+          <h1>SkillTrack</h1>
           <p>Your personal learning management system.</p>
         </div>
 

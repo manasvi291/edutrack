@@ -136,7 +136,7 @@ export async function GET(request) {
       </head>
       <body>
         <div class="certificate">
-          <div class="logo">EduTrack Academy</div>
+          <div class="logo">SkillTrack Academy</div>
           <h1>Certificate of Completion</h1>
           <div class="subtitle">This is to proudly certify that</div>
           <div class="recipient">${user.name || 'Dedicated Learner'}</div>
@@ -145,7 +145,7 @@ export async function GET(request) {
           
           <div class="footer">
             <div class="signature">
-              <div style="font-family: 'Brush Script MT', cursive; font-size: 32px; color: #4F46E5; line-height: 1;">EduTrack Admin</div>
+              <div style="font-family: 'Brush Script MT', cursive; font-size: 32px; color: #4F46E5; line-height: 1;">SkillTrack Admin</div>
               <p>Platform Director</p>
             </div>
             <div class="date">
